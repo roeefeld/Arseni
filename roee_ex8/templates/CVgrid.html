@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello using media</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/CSS/CV.css') }}">
+    <script src="{{ url_for('static', filename='../static/JS/CV.js') }}"></script>
+</head>
+
+<body>
+{% include 'Header.html' %}
+    <div class="wrapper">
+        <div style="text-align:center;" class="header">example number four</div>
+        <button type="button" onclick="printMyName()">click here to get my name</button>
+        <div style="text-align:center;" class="box-one">I'm a box in left side</div>
+        <div style="text-align:center;" class="box-two">I'm big box in right</div>
+        <div style="text-align:center;" class="box-three">I'm big box in left</div>
+        <div style="text-align:center;" class="box-four">I'm little box in right</div>
+        <div style="text-align:center;" class="box-five"> when the page is less than 768px you're all the same size and in the same place</div>
+      </div>
+      <div class="box-six">
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="id1" minlength="4" name="firstname" placeholder="Your name"><br>
+
+            <label for="fname">Last Name</label>
+            <input type="text" id="id2" minlength="4" name="lasttname" placeholder="Last name"><br>
+
+            <label for="subject">Subject</label> <br>
+            <textarea id="id3" name="subject" required minlength="20" placeholder="write about yourself" style="height:150px"></textarea><br>
+
+
+            <p id="demo"></p>
+
+            <button type="button" onclick="Namevalidation()">Submit</button>
+
+
+
+
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment8</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/assignment8.css') }}">
+</head>
+<body>
+{% include 'Header.html' %}
+
+
+{% extends "base.html"%}
+
+{%  block maccabi %}
+    {{ super() }}
+    <p id="p">Players in maccabi</p>
+
+    {%for i in maccabi %}
+        {% if i == "dor micha" %}
+            <li >{{i | upper() }}</li>
+        {% else %}
+            <li >{{i| lower()}}</li>
+        {% endif %}
+    {%endfor%}
+
+
+
+
+
+
+{% endblock %}
+
+
+
+</body>
+</html>
+
+
+

@@ -1,4 +1,6 @@
-from flask import Flask  ,render_template, request,session
+from flask import Flask  ,render_template, request,session ,blueprints
+import  mysql, mysql.connector
+
 
 app = Flask(__name__)
 app.secret_key = '123'
@@ -8,6 +10,31 @@ users = {"user1": {"UserName": "erani","First Name": "Eran","Last Name": "Zehavi
          "user4": {"UserName": "ori","First Name": "Ori", "Last Name": "malmilian", "Email": "malmil@gmail.com"},
          "user5": {"UserName": "Ayelet", "First Name": "Ayelet", "Last Name": "Shaked", "Email": "ayeletsha@gmail.com"}
          }
+
+from assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
+
+
+##################### Arseni's function ##################################
+def interact_db(query, query_type: str):
+    return_value = False
+    connection = mysql.connector.connect(host='localhost',
+                                         user='root',
+                                         password='d6sktfTh',
+                                         database='assignment10_schema')
+    cursor = connection.cursor(named_tuple=True)
+    cursor.execute(query)
+
+    if query_type == 'commit':
+        connection.commit()
+        return_value = True
+    if query_type == 'fetch':
+        query_result = cursor.fetchall()
+        return_value = query_result
+
+    connection.close()
+    cursor.close()
+    return return_value
 
 
 
@@ -64,4 +91,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

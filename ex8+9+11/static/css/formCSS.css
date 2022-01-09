@@ -1,0 +1,36 @@
+label{
+    color:blue;
+    padding: 10px;
+    margin: 10px;
+    border:2px solid black;
+
+}
+input{
+    padding: 10px;
+    margin: 10px;
+
+}
+textarea{
+    padding: 10px;
+    margin: 10px;
+}
+#signinHeader{
+    font-family: sans-serif;
+}
+.Buxa{
+    background-color: blueviolet;
+}
+input.Buxa{
+    background-color: lightgray;
+}
+a{
+    color:lightsalmon;
+}
+a:visited{
+color:magenta;
+}
+
+a:link{
+    color:mediumaquamarine;
+
+}

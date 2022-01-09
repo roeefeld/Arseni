@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+}
+
+.wrapper{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="box-"]{
+    float: left;
+    padding: 20px;
+}
+  /* for desktop */
+.box-one {width: 33.33%;}
+.box-two {width: 66.66%;}
+.box-three {width: 66.66%;}
+.box-four {width: 33.33%;}
+.box-five {width: 100%;}
+
+.box-one {
+  background: #8d8b86; 
+  animation-name: blink;
+  animation-iteration-count: 5;
+  animation-duration: 10s;
+}
+
+.box-two {
+  background: #52504b;
+}
+
+.box-three {
+  background: #ee8b0a; 
+}
+
+.box-four {
+  background: #eeedea; 
+}
+
+.box-five {
+  background: #157e5e;
+}
+
+.header {
+  background: #99e666; 
+  padding: 25px;
+} 
+
+@media only screen and (max-width: 768px){
+    /* for mobile */
+  [class*="box-"]{
+      width: 100%;
+      background: #2b2423;
+  }
+  .header{
+      width: 100%;
+      background: #d4b815; 
+  }
+}
+@keyframes blink {
+  from {background-color: #5f7c72 }
+  to {background-color: rgb(233, 211, 222) }
+}

@@ -126,5 +126,29 @@ def logout():
     session['login'] = False
     return render_template('CVgrid.html')
 
+@app.route('/assignment12/restapi_users', defaults={'user_id': -1})
+@app.route('/assignment12/restapi_users/<int:user_id>')
+def get_user_func(user_id):
+    if user_id == -1:
+       user_id = random.randrange(1, len(users))
+    ret = {}
+    query = "select * from users WHERE id='%s';" % user_id
+    userss = interact_db(query=query, query_type='fetch')
+    if len(userss) == 0:
+        ret = {
+            'status': 'failed',
+            'message': 'no user'
+        }
+    else:
+        for user in userss:
+            ret[f'user_{user.id}'] = {
+                'status': 'succeed',
+                'First Name': user.firstName,
+                'User Name': user.userName,
+                'Last Name': user.lastName,
+                'Email': user.email,
+            }
+    return jsonify(ret)
+
 if __name__ == '__main__':
     app.run(debug=True)
